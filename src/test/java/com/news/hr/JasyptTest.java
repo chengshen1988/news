@@ -16,6 +16,7 @@ public class JasyptTest {
         String password = textEncryptor.encrypt("ChengS#1988");
         System.out.println("username:"+username);
         System.out.println("password:"+password);
-        System.out.println(textEncryptor.encrypt("123456"));
+        String pwd = "123456";
+        System.out.println(pwd);
     }
 }
