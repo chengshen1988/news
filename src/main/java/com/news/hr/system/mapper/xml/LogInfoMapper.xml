@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.news.hr.system.mapper.LogInfoMapper">
+
+      <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.news.hr.system.bean.po.LogInfo">
+        <id column="log_info_id" property="logInfoId"/>
+        <result column="del_flag" property="delFlag"/>
+        <result column="c_user_id" property="cUserId"/>
+        <result column="c_user_name" property="cUserName"/>
+        <result column="ctime" property="ctime"/>
+        <result column="remote_ip" property="remoteIp"/>
+        <result column="module" property="module"/>
+        <result column="log_kind" property="logKind"/>
+        <result column="message" property="message"/>
+        <result column="business_data" property="businessData"/>
+  </resultMap>
+
+      <!-- 通用查询结果列 -->
+      <sql id="Base_Column_List">
+        log_info_id, del_flag, c_user_id, c_user_name, ctime, remote_ip, module, log_kind, message, business_data
+    </sql>
+</mapper>

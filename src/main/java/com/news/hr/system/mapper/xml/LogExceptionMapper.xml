@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.news.hr.system.mapper.LogExceptionMapper">
+
+      <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.news.hr.system.bean.po.LogException">
+        <id column="log_exception_id" property="logExceptionId"/>
+        <result column="del_flag" property="delFlag"/>
+        <result column="c_user_id" property="cUserId"/>
+        <result column="c_user_name" property="cUserName"/>
+        <result column="exception_name" property="exceptionName"/>
+        <result column="remote_ip" property="remoteIp"/>
+        <result column="module_name" property="moduleName"/>
+        <result column="url" property="url"/>
+        <result column="data" property="data"/>
+        <result column="message" property="message"/>
+        <result column="stacktrace" property="stacktrace"/>
+  </resultMap>
+
+      <!-- 通用查询结果列 -->
+      <sql id="Base_Column_List">
+        log_exception_id, del_flag, c_user_id, c_user_name, exception_name, remote_ip, module_name, url, data, message, stacktrace
+    </sql>
+</mapper>

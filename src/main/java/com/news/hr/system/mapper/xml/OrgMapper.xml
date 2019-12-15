@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.news.hr.system.mapper.OrgMapper">
+
+      <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.news.hr.system.bean.po.Org">
+        <id column="org_id" property="orgId"/>
+        <result column="org_code" property="orgCode"/>
+        <result column="parent_code" property="parentCode"/>
+        <result column="org_short_name" property="orgShortName"/>
+        <result column="org_full_name" property="orgFullName"/>
+        <result column="orgcode1" property="orgcode1"/>
+        <result column="orgcode2" property="orgcode2"/>
+        <result column="orgcode3" property="orgcode3"/>
+        <result column="orgcode4" property="orgcode4"/>
+        <result column="orgcode5" property="orgcode5"/>
+        <result column="org_level" property="orgLevel"/>
+        <result column="direct_orgcode" property="directOrgcode"/>
+        <result column="is_leaf" property="isLeaf"/>
+  </resultMap>
+
+      <!-- 通用查询结果列 -->
+      <sql id="Base_Column_List">
+        org_id, org_code, parent_code, org_short_name, org_full_name, orgcode1, orgcode2, orgcode3, orgcode4, orgcode5, org_level, direct_orgcode, is_leaf
+    </sql>
+</mapper>

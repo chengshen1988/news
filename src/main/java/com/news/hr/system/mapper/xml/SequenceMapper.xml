@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.news.hr.system.mapper.SequenceMapper">
+
+      <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.news.hr.system.bean.po.Sequence">
+        <id column="sequence_id" property="sequenceId"/>
+        <result column="sequence_name" property="sequenceName"/>
+        <result column="current_value" property="currentValue"/>
+        <result column="inct_value" property="inctValue"/>
+        <result column="reset_period" property="resetPeriod"/>
+        <result column="comment" property="comment"/>
+  </resultMap>
+
+      <!-- 通用查询结果列 -->
+      <sql id="Base_Column_List">
+        sequence_id, sequence_name, current_value, inct_value, reset_period, comment
+    </sql>
+</mapper>

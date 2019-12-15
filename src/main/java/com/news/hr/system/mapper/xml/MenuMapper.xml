@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.news.hr.system.mapper.MenuMapper">
+
+      <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.news.hr.system.bean.po.Menu">
+        <id column="menu_id" property="menuId"/>
+        <result column="del_flag" property="delFlag"/>
+        <result column="data_order" property="dataOrder"/>
+        <result column="c_user_id" property="cUserId"/>
+        <result column="c_user_name" property="cUserName"/>
+        <result column="ctime" property="ctime"/>
+        <result column="m_user_id" property="mUserId"/>
+        <result column="m_user_name" property="mUserName"/>
+        <result column="mtime" property="mtime"/>
+        <result column="menu_parent" property="menuParent"/>
+        <result column="menu_path" property="menuPath"/>
+        <result column="menu_level" property="menuLevel"/>
+        <result column="is_leaf" property="isLeaf"/>
+        <result column="menu_kind" property="menuKind"/>
+        <result column="menu_name" property="menuName"/>
+        <result column="menu_name_alias" property="menuNameAlias"/>
+        <result column="menu_code" property="menuCode"/>
+        <result column="menu_module" property="menuModule"/>
+        <result column="menu_module_url" property="menuModuleUrl"/>
+        <result column="menu_auth" property="menuAuth"/>
+        <result column="menu_icon_cls" property="menuIconCls"/>
+        <result column="menu_comment" property="menuComment"/>
+  </resultMap>
+
+      <!-- 通用查询结果列 -->
+      <sql id="Base_Column_List">
+        menu_id, del_flag, data_order, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, menu_parent, menu_path, menu_level, is_leaf, menu_kind, menu_name, menu_name_alias, menu_code, menu_module, menu_module_url, menu_auth, menu_icon_cls, menu_comment
+    </sql>
+</mapper>

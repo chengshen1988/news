@@ -1,0 +1,68 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          driverClassName: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/news_union?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+          username: root
+          password: ChengS#1988
+
+
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    timeout: 5000ms
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
+
+oss:
+  endpoint: https://oss-cn-beijing.aliyuncs.com
+  bucket: newspaper-cs-001
+  accessKeyId  : LTAI4FrRB9WrtkYiym2C97Gh
+  accessKeySecret: 369cMADe5amIFe5cFxKQkiXrEQkVwk
+
+quartz:
+  #相关属性配置
+  properties:
+    org:
+      quartz:
+        scheduler:
+          instanceName: clusteredScheduler
+          instanceId: AUTO
+        jobStore:
+          # 数据源名称
+          dataSource: masterDataSource
+          class: org.quartz.impl.jdbcjobstore.JobStoreTX
+          driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+          tablePrefix: QRTZ_
+          isClustered: true
+          clusterCheckinInterval: 1000
+          useProperties: false
+        threadPool:
+          class: org.quartz.simpl.SimpleThreadPool
+          threadCount: 10
+          threadPriority: 5
+          threadsInheritContextClassLoaderOfInitializingThread: true
+  job-store-type: jdbc
+  #初始化表结构
+  jdbc:
+    initialize-schema: never
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL55Dialect
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
