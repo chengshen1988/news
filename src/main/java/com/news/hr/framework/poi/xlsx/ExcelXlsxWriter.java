@@ -195,10 +195,11 @@ public class ExcelXlsxWriter {
       mHeaderCellStyle.setBorderRight(BorderStyle.DOTTED);
       mHeaderCellStyle.setBorderBottom(BorderStyle.DOTTED);
       mHeaderCellStyle.setBorderLeft(BorderStyle.DOTTED);
-      mHeaderCellStyle.setAlignment(HorizontalAlignment.LEFT);// 对齐
-      mHeaderCellStyle.setFillForegroundColor(HSSFColor.GREEN.index);
-      mHeaderCellStyle.setFillBackgroundColor(HSSFColor.GREEN.index);
-      font.setColor(HSSFColor.WHITE.index);
+      // 对齐
+      mHeaderCellStyle.setAlignment(HorizontalAlignment.LEFT);
+      mHeaderCellStyle.setFillForegroundColor(IndexedColors.GREEN.getIndex());
+      mHeaderCellStyle.setFillBackgroundColor(IndexedColors.GREEN.getIndex());
+      font.setColor(IndexedColors.WHITE.getIndex());
       // 应用标题字体到标题样式
       mHeaderCellStyle.setFont(font);
       //设置单元格文本形式
