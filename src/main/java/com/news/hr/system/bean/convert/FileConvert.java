@@ -3,6 +3,7 @@ package com.news.hr.system.bean.convert;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.compress.utils.Lists;
 import org.springframework.beans.BeanUtils;
 import org.springframework.util.CollectionUtils;
 
@@ -11,6 +12,7 @@ import com.news.hr.system.bean.form.FileForm;
 import com.news.hr.system.bean.vo.FileVo;
 import com.news.hr.system.bean.dto.FileImport;
 import com.news.hr.system.bean.dto.FileExport;
+
 /**
  * <p>
  * FileConvert工具类
@@ -20,35 +22,38 @@ import com.news.hr.system.bean.dto.FileExport;
  * @since 2019-12-15
  */
 
-public class FileConvert{
+public class FileConvert {
     /**
-    * Form -> Po
-    * @param source 对象
-    * @return Do对象
-    */
-    public static File convertToPoByForm(FileForm source){
+     * Form -> Po
+     *
+     * @param source 对象
+     * @return Do对象
+     */
+    public static File convertToPoByForm(FileForm source) {
         File target = new File();
         BeanUtils.copyProperties(source, target);
         return target;
     }
 
     /**
-    * Form -> Po
-    * @param source 对象
-    * @return Do对象
-    */
-    public static FileVo convertToVoByPo(File source){
+     * Form -> Po
+     *
+     * @param source 对象
+     * @return Do对象
+     */
+    public static FileVo convertToVoByPo(File source) {
         FileVo target = new FileVo();
         BeanUtils.copyProperties(source, target);
         return target;
     }
 
     /**
-    * Do -> VO
-    * @param sources 对象
-    * @return VO对象
-    */
-    public static  List<FileVo> convertToVoByPo(List<File> sources){
+     * Do -> VO
+     *
+     * @param sources 对象
+     * @return VO对象
+     */
+    public static List<FileVo> convertToVoByPo(List<File> sources) {
         List<FileVo> files = new ArrayList<>();
         if (CollectionUtils.isEmpty(sources)) {
             return files;
@@ -62,11 +67,12 @@ public class FileConvert{
     }
 
     /**
-    * Import -> Po
-    * @param sources 对象
-    * @return Po对象
-    */
-    public static  List<File> convertToPoByImport(List<FileImport> sources){
+     * Import -> Po
+     *
+     * @param sources 对象
+     * @return Po对象
+     */
+    public static List<File> convertToPoByImport(List<FileImport> sources) {
         List<File> files = new ArrayList<>();
         if (CollectionUtils.isEmpty(sources)) {
             return files;
@@ -80,11 +86,12 @@ public class FileConvert{
     }
 
     /**
-    * Po -> Export
-    * @param sources 对象
-    * @return Export对象
-    */
-    public static  List<FileExport> convertToExportByPo(List<File> sources){
+     * Po -> Export
+     *
+     * @param sources 对象
+     * @return Export对象
+     */
+    public static List<FileExport> convertToExportByPo(List<File> sources) {
         List<FileExport> fileExports = new ArrayList<>();
         if (CollectionUtils.isEmpty(sources)) {
             return fileExports;
@@ -98,11 +105,12 @@ public class FileConvert{
     }
 
     /**
-    * Vo -> Export
-    * @param sources 对象
-    * @return Export对象
-    */
-    public static  List<FileExport> convertToExportByVo(List<FileVo> sources){
+     * Vo -> Export
+     *
+     * @param sources 对象
+     * @return Export对象
+     */
+    public static List<FileExport> convertToExportByVo(List<FileVo> sources) {
         List<FileExport> fileExports = new ArrayList<>();
         if (CollectionUtils.isEmpty(sources)) {
             return fileExports;
@@ -113,6 +121,10 @@ public class FileConvert{
             fileExports.add(target);
         }
         return fileExports;
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }

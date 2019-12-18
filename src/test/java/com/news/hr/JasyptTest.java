@@ -1,6 +1,9 @@
 package com.news.hr;
 
+import com.google.common.collect.Lists;
 import org.jasypt.util.text.BasicTextEncryptor;
+
+import java.util.ArrayList;
 
 /**
  * @author ChenSeen
@@ -16,7 +19,10 @@ public class JasyptTest {
         String password = textEncryptor.encrypt("ChengS#1988");
         System.out.println("username:"+username);
         System.out.println("password:"+password);
-        String pwd = "123456";
-        System.out.println(pwd);
+
+
+
     }
+
+
 }
