@@ -15,10 +15,10 @@
         <result column="log_kind" property="logKind"/>
         <result column="message" property="message"/>
         <result column="business_data" property="businessData"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         log_info_id, del_flag, c_user_id, c_user_name, ctime, remote_ip, module, log_kind, message, business_data
-    </sql>
+      </sql>
 </mapper>

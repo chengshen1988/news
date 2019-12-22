@@ -18,10 +18,10 @@
         <result column="user_id" property="userId"/>
         <result column="user_name" property="userName"/>
         <result column="read_flag" property="readFlag"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         notice_user_id, del_flag, data_order, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, notice_id, user_id, user_name, read_flag
-    </sql>
+      </sql>
 </mapper>

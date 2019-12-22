@@ -21,10 +21,10 @@
         <result column="page_key" property="pageKey"/>
         <result column="operation_auth" property="operationAuth"/>
         <result column="operation_comment" property="operationComment"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         operation_id, del_flag, data_order, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, menu_id, operation_kind, operation_name, operation_code, page_key, operation_auth, operation_comment
-    </sql>
+      </sql>
 </mapper>

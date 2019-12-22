@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Data
 @Builder
@@ -25,6 +25,7 @@ public class PostQuery{
     @ApiModelProperty(value = "分页页码总条数")
     private Integer limit;
     @ApiModelProperty(value = "删除标记")
+    @Builder.Default
     private Integer delFlag = 0;
     @ApiModelProperty(value = "排序字段")
     private String orderBy;

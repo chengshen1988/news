@@ -8,10 +8,10 @@
         <id column="user_group_id" property="userGroupId"/>
         <result column="user_id" property="userId"/>
         <result column="group_id" property="groupId"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         user_group_id, user_id, group_id
-    </sql>
+      </sql>
 </mapper>

@@ -27,10 +27,10 @@ import com.news.hr.system.service.NoticeUserService;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class NoticeUserServiceImpl extends ServiceImpl<NoticeUserMapper, NoticeUser> implements NoticeUserService {
 
     @Resource

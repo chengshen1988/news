@@ -20,7 +20,7 @@ import com.news.hr.system.bean.vo.RoleVo;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 public interface RoleService extends IService<Role> {
     /**

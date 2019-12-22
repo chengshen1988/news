@@ -18,10 +18,10 @@
         <result column="org_level" property="orgLevel"/>
         <result column="direct_orgcode" property="directOrgcode"/>
         <result column="is_leaf" property="isLeaf"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         org_id, org_code, parent_code, org_short_name, org_full_name, orgcode1, orgcode2, orgcode3, orgcode4, orgcode5, org_level, direct_orgcode, is_leaf
-    </sql>
+      </sql>
 </mapper>

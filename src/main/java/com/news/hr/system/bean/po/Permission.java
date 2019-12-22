@@ -11,7 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
@@ -21,7 +20,7 @@ import java.time.LocalDate;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Data
 @Builder
@@ -34,43 +33,43 @@ public class Permission extends Model<Permission> {
 
     private static final long serialVersionUID=1L;
 
-        @ApiModelProperty(value = "权限id")
+    @ApiModelProperty(value = "权限id")
     @TableId(value = "permission_id", type = IdType.AUTO)
         private Integer permissionId;
 
-        @ApiModelProperty(value = "权限类型（菜单、操作、数据）")
+    @ApiModelProperty(value = "权限类型（菜单、操作、数据）")
     @TableField("permission_kind")
     private String permissionKind;
 
-        @ApiModelProperty(value = "角色id")
+    @ApiModelProperty(value = "角色id")
     @TableField("role_id")
     private String roleId;
 
-        @ApiModelProperty(value = "资源id")
+    @ApiModelProperty(value = "资源id")
     @TableField("resource_id")
     private String resourceId;
 
-        @ApiModelProperty(value = "资源标识")
+    @ApiModelProperty(value = "资源标识")
     @TableField("resource_key")
     private String resourceKey;
 
-        @ApiModelProperty(value = "资源名称")
+    @ApiModelProperty(value = "资源名称")
     @TableField("resource_name")
     private String resourceName;
 
-        @ApiModelProperty(value = "资源权限")
+    @ApiModelProperty(value = "资源权限")
     @TableField("resource_auth")
     private String resourceAuth;
 
-        @ApiModelProperty(value = "公式")
+    @ApiModelProperty(value = "公式")
     @TableField("formula")
     private String formula;
 
-        @ApiModelProperty(value = "资源值")
+    @ApiModelProperty(value = "资源值")
     @TableField("resource_value")
     private String resourceValue;
 
-        @ApiModelProperty(value = "备注")
+    @ApiModelProperty(value = "备注")
     @TableField("data_comment")
     private String dataComment;
 

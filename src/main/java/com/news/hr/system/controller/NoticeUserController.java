@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.Api;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -38,37 +35,38 @@ import com.news.hr.system.bean.convert.NoticeUserConvert;
 /**
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @RestController
 @Api(value = "system-NoticeUser", tags = {"system-NoticeUser"})
 @RequestMapping("noticeUser")
 public class NoticeUserController {
 
-    private final Logger logger=LoggerFactory.getLogger(NoticeUserController.class);
+    
     @Resource
     private NoticeUserService noticeUserService;
 
     /**
     * 保存单条
     * @param noticeUserForm 保存参数
-    * @return 是否添加成功
+    * @return com.news.hr.framework.model.ReturnModel 是否添加成功
     */
-    @ApiOperation(value = "保存数据", notes = "保存数据到NoticeUser")
+    @ApiOperation(value = "保存数据", notes = "保存数据到NoticeUser",httpMethod = "POST")
     @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ReturnModel save(@RequestBody NoticeUserForm noticeUserForm) {
         Integer result = noticeUserService.save(noticeUserForm);
-        return ReturnModel.newSuccessInstance(noticeUserForm);
+        return ReturnModel.newSuccessInstance(result);
     }
 
     /**
      * 删除(根据主键id删除)
      * @param noticeUserId 主键id
-     * @return 是否删除成功
+     * @return com.news.hr.framework.model.ReturnModel 是否删除成功
      */
-    @ApiOperation(value = "删除数据", notes = "根据主键id删除NoticeUser数据")
-    @PostMapping(value = "/deleteById", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ReturnModel deleteById(@RequestParam(required = true, value = "noticeUserId") String noticeUserId) {
+    @ApiOperation(value = "删除数据", notes = "根据主键id删除NoticeUser数据",httpMethod = "DELETE")
+    @DeleteMapping(value = "/deleteById/noticeUserId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ReturnModel deleteById(@ApiParam(name = "noticeUserId",value = "noticeUser主键id")
+            @PathVariable String noticeUserId) {
         Integer result = noticeUserService.deleteById(noticeUserId);
         return ReturnModel.newSuccessInstance(result);
     }
@@ -76,10 +74,10 @@ public class NoticeUserController {
     /**
     * 更新(根据主键id更新)
     * @param noticeUserForm 修改参数
-    * @return 是否更改成功
+    * @return com.news.hr.framework.model.ReturnModel 是否更改成功
     */
-    @ApiOperation(value = "更新数据", notes = "根据主键id更新NoticeUser数据")
-    @PostMapping(value = "/updateById", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiOperation(value = "更新数据", notes = "根据主键id更新NoticeUser数据",httpMethod = "PUT")
+    @PutMapping(value = "/updateById/noticeUserId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ReturnModel updateById(@RequestBody NoticeUserForm noticeUserForm) {
         Integer result = noticeUserService.updateById(noticeUserForm);
         return ReturnModel.newSuccessInstance(result);
@@ -88,11 +86,11 @@ public class NoticeUserController {
     /**
     * 根据主键id查询单条
     * @param noticeUserId 主键id
-    * @return 查询结果
+    * @return com.news.hr.framework.model.ReturnModel 查询结果
     */
-    @ApiOperation(value = "获取单条数据", notes = "根据主键id获取NoticeUser数据")
-    @GetMapping(value = "/selectById", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ReturnModel selectById(@RequestParam(required = true, value = "noticeUserId") String noticeUserId) {
+    @ApiOperation(value = "获取单条数据", notes = "根据主键id获取NoticeUser数据",httpMethod = "GET")
+    @GetMapping(value = "/selectById/noticeUserId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ReturnModel selectById(@RequestParam(value = "noticeUserId")  String noticeUserId) {
         NoticeUserVo result = noticeUserService.selectById(noticeUserId);
         return ReturnModel.newSuccessInstance(result);
     }
@@ -100,9 +98,9 @@ public class NoticeUserController {
     /**
      * 分页查询数据
      * @param noticeUserQuery 查询条件
-     * @return
+     * @return com.news.hr.framework.model.ReturnModel
      */
-    @ApiOperation(value = "分页获取所有noticeUser信息", notes = "获取所有noticeUser信息")
+    @ApiOperation(value = "分页获取所有noticeUser信息", notes = "获取所有noticeUser信息",httpMethod = "GET")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "当前页码(page)", example = "1", dataType = "int", required = true),
             @ApiImplicitParam(name = "limit", value = "每页展示条数(limit)", example = "10", dataType = "int", required = true)
@@ -115,9 +113,8 @@ public class NoticeUserController {
 
     /**
      * 下载导入模板
-     * @return
      */
-    @ApiOperation("下载导入模板")
+    @ApiOperation(value = "下载导入模板",httpMethod = "GET")
     @GetMapping(value = "downloadTemplate")
     public void downloadTemplate(HttpServletResponse response) {
         List<NoticeUserImport> noticeUserImports = new ArrayList<>();
@@ -126,11 +123,11 @@ public class NoticeUserController {
 
     /**
      * 导入数据
-     * @return
+     * @return com.news.hr.framework.model.ReturnModel
      */
-    @ApiOperation("导入数据")
+    @ApiOperation(value = "导入数据",httpMethod = "POST")
     @PostMapping(value = "importData")
-    public ReturnModel importData(@RequestParam(value = "file", required = true) MultipartFile file) throws IOException {
+    public ReturnModel importData(@RequestParam(value = "file") MultipartFile file) throws IOException {
         List<NoticeUserImport> successResult = Lists.newArrayList();
         List<Map<String, Object>> errorResult = Lists.newArrayList();
         ExcelKit.$Import(NoticeUserImport.class).readXlsx(file.getInputStream(), new ExcelReadHandler<NoticeUserImport>() {
@@ -155,9 +152,8 @@ public class NoticeUserController {
 
     /**
      * 导出数据
-     * @return
      */
-    @ApiOperation("导出信息")
+    @ApiOperation(value = "导出信息" , httpMethod = "GET")
     @GetMapping(value = "exportData")
     public void exportData(HttpServletResponse response, NoticeUserQuery noticeUserQuery) {
         List<NoticeUserVo> noticeUserVos = noticeUserService.selectList(noticeUserQuery);

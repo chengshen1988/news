@@ -15,10 +15,10 @@
         <result column="module_name" property="moduleName"/>
         <result column="url" property="url"/>
         <result column="data_comment" property="dataComment"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         access_log_id, del_flag, c_user_id, c_user_name, access_kind, remote_ip, module_id, module_name, url, data_comment
-    </sql>
+      </sql>
 </mapper>

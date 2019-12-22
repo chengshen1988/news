@@ -11,10 +11,10 @@
         <result column="inct_value" property="inctValue"/>
         <result column="reset_period" property="resetPeriod"/>
         <result column="comment" property="comment"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         sequence_id, sequence_name, current_value, inct_value, reset_period, comment
-    </sql>
+      </sql>
 </mapper>

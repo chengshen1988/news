@@ -20,10 +20,10 @@
         <result column="message_kind" property="messageKind"/>
         <result column="message_title" property="messageTitle"/>
         <result column="message_content" property="messageContent"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         message_id, del_flag, c_user_id, c_user_name, c_unit_id, c_post_id, ctime, m_user_id, m_user_name, mtime, business_type, business_id, message_kind, message_title, message_content
-    </sql>
+      </sql>
 </mapper>

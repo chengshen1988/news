@@ -11,7 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
@@ -21,7 +20,7 @@ import java.time.LocalDate;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Data
 @Builder
@@ -34,7 +33,7 @@ public class Region extends Model<Region> {
 
     private static final long serialVersionUID=1L;
 
-    @TableId(value = "region_id", type = IdType.UUID)
+    @TableId(value = "region_id", type = IdType.ASSIGN_UUID)
         private Integer regionId;
 
     @TableField("Name")

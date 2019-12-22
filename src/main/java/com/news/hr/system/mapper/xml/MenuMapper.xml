@@ -27,10 +27,10 @@
         <result column="menu_auth" property="menuAuth"/>
         <result column="menu_icon_cls" property="menuIconCls"/>
         <result column="menu_comment" property="menuComment"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         menu_id, del_flag, data_order, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, menu_parent, menu_path, menu_level, is_leaf, menu_kind, menu_name, menu_name_alias, menu_code, menu_module, menu_module_url, menu_auth, menu_icon_cls, menu_comment
-    </sql>
+      </sql>
 </mapper>

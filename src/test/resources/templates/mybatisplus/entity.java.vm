@@ -12,7 +12,6 @@ import lombok.*;
 #end
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
@@ -48,10 +47,10 @@ public class ${entity} implements Serializable{
 #foreach($field in ${table.fields})
 
     #if(${field.keyFlag})
-        #set($keyPropertyName=${field.propertyName})
+    #set($keyPropertyName=${field.propertyName})
     #end
     #if(${field.propertyType.equals("LocalDate")})
-        @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     #end
     #if(${field.propertyType.equals("LocalDateTime")})
     @DateTimeFormat(pattern = "YYYY-MM-dd HH:mm:ss")

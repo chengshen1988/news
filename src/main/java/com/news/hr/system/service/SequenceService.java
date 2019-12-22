@@ -20,7 +20,7 @@ import com.news.hr.system.bean.vo.SequenceVo;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 public interface SequenceService extends IService<Sequence> {
     /**

@@ -13,7 +13,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
@@ -23,7 +22,7 @@ import java.time.LocalDate;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Data
 @Builder
@@ -36,60 +35,60 @@ public class MessageUser extends Model<MessageUser> {
 
     private static final long serialVersionUID=1L;
 
-    @TableId(value = "message_user_id", type = IdType.UUID)
+    @TableId(value = "message_user_id", type = IdType.ASSIGN_UUID)
         private Integer messageUserId;
 
-        @ApiModelProperty(value = "删除标记（0：正常，1：删除）")
+    @ApiModelProperty(value = "删除标记（0：正常，1：删除）")
     @TableField("del_flag")
     private Integer delFlag;
 
-        @ApiModelProperty(value = "创建用户的登录名")
+    @ApiModelProperty(value = "创建用户的登录名")
     @TableField("c_user_id")
     private String cUserId;
 
-        @ApiModelProperty(value = "创建用户的名称")
+    @ApiModelProperty(value = "创建用户的名称")
     @TableField("c_user_name")
     private String cUserName;
 
     @DateTimeFormat(pattern = "YYYY-MM-dd HH:mm:ss")
-        @ApiModelProperty(value = "创建时间")
+    @ApiModelProperty(value = "创建时间")
     @TableField(value = "ctime", fill = FieldFill.INSERT)
     private LocalDateTime ctime;
 
-        @ApiModelProperty(value = "最后修改的用户的登录名")
+    @ApiModelProperty(value = "最后修改的用户的登录名")
     @TableField("m_user_id")
     private String mUserId;
 
-        @ApiModelProperty(value = "最后修改的用户的名称")
+    @ApiModelProperty(value = "最后修改的用户的名称")
     @TableField("m_user_name")
     private String mUserName;
 
     @DateTimeFormat(pattern = "YYYY-MM-dd HH:mm:ss")
-        @ApiModelProperty(value = "最后修改时间")
+    @ApiModelProperty(value = "最后修改时间")
     @TableField(value = "mtime", fill = FieldFill.UPDATE)
     private LocalDateTime mtime;
 
-        @ApiModelProperty(value = "sys_message 主键")
+    @ApiModelProperty(value = "sys_message 主键")
     @TableField("message_id")
     private String messageId;
 
-        @ApiModelProperty(value = "发送人、接收人、抄送人")
+    @ApiModelProperty(value = "发送人、接收人、抄送人")
     @TableField("user_type")
     private String userType;
 
-        @ApiModelProperty(value = "用户登录名")
+    @ApiModelProperty(value = "用户登录名")
     @TableField("user_id")
     private String userId;
 
-        @ApiModelProperty(value = "用户名称")
+    @ApiModelProperty(value = "用户名称")
     @TableField("user_name")
     private String userName;
 
-        @ApiModelProperty(value = "已读标记（Y-已读 N-未读）")
+    @ApiModelProperty(value = "已读标记（Y-已读 N-未读）")
     @TableField("read_flag")
     private String readFlag;
 
-        @ApiModelProperty(value = "采集标记（Y-已读 N-未读）")
+    @ApiModelProperty(value = "采集标记（Y-已读 N-未读）")
     @TableField("collect_flag")
     private String collectFlag;
 

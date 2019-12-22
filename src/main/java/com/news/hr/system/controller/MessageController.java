@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.Api;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -38,37 +35,38 @@ import com.news.hr.system.bean.convert.MessageConvert;
 /**
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @RestController
 @Api(value = "system-Message", tags = {"system-Message"})
 @RequestMapping("message")
 public class MessageController {
 
-    private final Logger logger=LoggerFactory.getLogger(MessageController.class);
+    
     @Resource
     private MessageService messageService;
 
     /**
     * 保存单条
     * @param messageForm 保存参数
-    * @return 是否添加成功
+    * @return com.news.hr.framework.model.ReturnModel 是否添加成功
     */
-    @ApiOperation(value = "保存数据", notes = "保存数据到Message")
+    @ApiOperation(value = "保存数据", notes = "保存数据到Message",httpMethod = "POST")
     @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ReturnModel save(@RequestBody MessageForm messageForm) {
         Integer result = messageService.save(messageForm);
-        return ReturnModel.newSuccessInstance(messageForm);
+        return ReturnModel.newSuccessInstance(result);
     }
 
     /**
      * 删除(根据主键id删除)
      * @param messageId 主键id
-     * @return 是否删除成功
+     * @return com.news.hr.framework.model.ReturnModel 是否删除成功
      */
-    @ApiOperation(value = "删除数据", notes = "根据主键id删除Message数据")
-    @PostMapping(value = "/deleteById", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ReturnModel deleteById(@RequestParam(required = true, value = "messageId") String messageId) {
+    @ApiOperation(value = "删除数据", notes = "根据主键id删除Message数据",httpMethod = "DELETE")
+    @DeleteMapping(value = "/deleteById/messageId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ReturnModel deleteById(@ApiParam(name = "messageId",value = "message主键id")
+            @PathVariable String messageId) {
         Integer result = messageService.deleteById(messageId);
         return ReturnModel.newSuccessInstance(result);
     }
@@ -76,10 +74,10 @@ public class MessageController {
     /**
     * 更新(根据主键id更新)
     * @param messageForm 修改参数
-    * @return 是否更改成功
+    * @return com.news.hr.framework.model.ReturnModel 是否更改成功
     */
-    @ApiOperation(value = "更新数据", notes = "根据主键id更新Message数据")
-    @PostMapping(value = "/updateById", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiOperation(value = "更新数据", notes = "根据主键id更新Message数据",httpMethod = "PUT")
+    @PutMapping(value = "/updateById/messageId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ReturnModel updateById(@RequestBody MessageForm messageForm) {
         Integer result = messageService.updateById(messageForm);
         return ReturnModel.newSuccessInstance(result);
@@ -88,11 +86,11 @@ public class MessageController {
     /**
     * 根据主键id查询单条
     * @param messageId 主键id
-    * @return 查询结果
+    * @return com.news.hr.framework.model.ReturnModel 查询结果
     */
-    @ApiOperation(value = "获取单条数据", notes = "根据主键id获取Message数据")
-    @GetMapping(value = "/selectById", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ReturnModel selectById(@RequestParam(required = true, value = "messageId") String messageId) {
+    @ApiOperation(value = "获取单条数据", notes = "根据主键id获取Message数据",httpMethod = "GET")
+    @GetMapping(value = "/selectById/messageId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ReturnModel selectById(@RequestParam(value = "messageId")  String messageId) {
         MessageVo result = messageService.selectById(messageId);
         return ReturnModel.newSuccessInstance(result);
     }
@@ -100,9 +98,9 @@ public class MessageController {
     /**
      * 分页查询数据
      * @param messageQuery 查询条件
-     * @return
+     * @return com.news.hr.framework.model.ReturnModel
      */
-    @ApiOperation(value = "分页获取所有message信息", notes = "获取所有message信息")
+    @ApiOperation(value = "分页获取所有message信息", notes = "获取所有message信息",httpMethod = "GET")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "当前页码(page)", example = "1", dataType = "int", required = true),
             @ApiImplicitParam(name = "limit", value = "每页展示条数(limit)", example = "10", dataType = "int", required = true)
@@ -115,9 +113,8 @@ public class MessageController {
 
     /**
      * 下载导入模板
-     * @return
      */
-    @ApiOperation("下载导入模板")
+    @ApiOperation(value = "下载导入模板",httpMethod = "GET")
     @GetMapping(value = "downloadTemplate")
     public void downloadTemplate(HttpServletResponse response) {
         List<MessageImport> messageImports = new ArrayList<>();
@@ -126,11 +123,11 @@ public class MessageController {
 
     /**
      * 导入数据
-     * @return
+     * @return com.news.hr.framework.model.ReturnModel
      */
-    @ApiOperation("导入数据")
+    @ApiOperation(value = "导入数据",httpMethod = "POST")
     @PostMapping(value = "importData")
-    public ReturnModel importData(@RequestParam(value = "file", required = true) MultipartFile file) throws IOException {
+    public ReturnModel importData(@RequestParam(value = "file") MultipartFile file) throws IOException {
         List<MessageImport> successResult = Lists.newArrayList();
         List<Map<String, Object>> errorResult = Lists.newArrayList();
         ExcelKit.$Import(MessageImport.class).readXlsx(file.getInputStream(), new ExcelReadHandler<MessageImport>() {
@@ -155,9 +152,8 @@ public class MessageController {
 
     /**
      * 导出数据
-     * @return
      */
-    @ApiOperation("导出信息")
+    @ApiOperation(value = "导出信息" , httpMethod = "GET")
     @GetMapping(value = "exportData")
     public void exportData(HttpServletResponse response, MessageQuery messageQuery) {
         List<MessageVo> messageVos = messageService.selectList(messageQuery);

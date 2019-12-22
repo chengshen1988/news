@@ -22,10 +22,10 @@
         <result column="dict_display" property="dictDisplay"/>
         <result column="dict_value" property="dictValue"/>
         <result column="dict_comment" property="dictComment"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         dict_id, del_flag, data_order, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, dict_parent, dict_path, dict_level, is_leaf, dict_kind, dict_display, dict_value, dict_comment
-    </sql>
+      </sql>
 </mapper>

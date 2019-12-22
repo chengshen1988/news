@@ -13,7 +13,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
@@ -23,7 +22,7 @@ import java.time.LocalDate;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Data
 @Builder
@@ -36,56 +35,56 @@ public class NoticeUser extends Model<NoticeUser> {
 
     private static final long serialVersionUID=1L;
 
-    @TableId(value = "notice_user_id", type = IdType.UUID)
+    @TableId(value = "notice_user_id", type = IdType.ASSIGN_UUID)
         private String noticeUserId;
 
-        @ApiModelProperty(value = "删除标记（0：正常，1：删除）")
+    @ApiModelProperty(value = "删除标记（0：正常，1：删除）")
     @TableField("del_flag")
     private Integer delFlag;
 
-        @ApiModelProperty(value = "排序字段（用户可以手动操作数据顺序时用到）")
+    @ApiModelProperty(value = "排序字段（用户可以手动操作数据顺序时用到）")
     @TableField("data_order")
     private Integer dataOrder;
 
-        @ApiModelProperty(value = "创建用户的登录名")
+    @ApiModelProperty(value = "创建用户的登录名")
     @TableField("c_user_id")
     private String cUserId;
 
-        @ApiModelProperty(value = "创建用户的名称")
+    @ApiModelProperty(value = "创建用户的名称")
     @TableField("c_user_name")
     private String cUserName;
 
     @DateTimeFormat(pattern = "YYYY-MM-dd HH:mm:ss")
-        @ApiModelProperty(value = "创建时间")
+    @ApiModelProperty(value = "创建时间")
     @TableField(value = "ctime", fill = FieldFill.INSERT)
     private LocalDateTime ctime;
 
-        @ApiModelProperty(value = "最后修改的用户的登录名")
+    @ApiModelProperty(value = "最后修改的用户的登录名")
     @TableField("m_user_id")
     private String mUserId;
 
-        @ApiModelProperty(value = "最后修改的用户的名称")
+    @ApiModelProperty(value = "最后修改的用户的名称")
     @TableField("m_user_name")
     private String mUserName;
 
     @DateTimeFormat(pattern = "YYYY-MM-dd HH:mm:ss")
-        @ApiModelProperty(value = "最后修改时间")
+    @ApiModelProperty(value = "最后修改时间")
     @TableField(value = "mtime", fill = FieldFill.UPDATE)
     private LocalDateTime mtime;
 
-        @ApiModelProperty(value = "sys_notice主键")
+    @ApiModelProperty(value = "sys_notice主键")
     @TableField("notice_id")
     private String noticeId;
 
-        @ApiModelProperty(value = "用户登录名")
+    @ApiModelProperty(value = "用户登录名")
     @TableField("user_id")
     private String userId;
 
-        @ApiModelProperty(value = "用户名称")
+    @ApiModelProperty(value = "用户名称")
     @TableField("user_name")
     private String userName;
 
-        @ApiModelProperty(value = "已读标记（Y-已读 N-未读）")
+    @ApiModelProperty(value = "已读标记（Y-已读 N-未读）")
     @TableField("read_flag")
     private String readFlag;
 

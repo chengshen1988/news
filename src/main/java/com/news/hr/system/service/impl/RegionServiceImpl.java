@@ -27,10 +27,10 @@ import com.news.hr.system.service.RegionService;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> implements RegionService {
 
     @Resource

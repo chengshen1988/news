@@ -18,10 +18,10 @@
         <result column="group_name" property="groupName"/>
         <result column="group_code" property="groupCode"/>
         <result column="data_comment" property="dataComment"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         group_id, del_flag, data_order, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, org_code, group_name, group_code, data_comment
-    </sql>
+      </sql>
 </mapper>

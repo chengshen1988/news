@@ -10,10 +10,10 @@
         <result column="post_name" property="postName"/>
         <result column="org_code" property="orgCode"/>
         <result column="data_order" property="dataOrder"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         post_id, post_code, post_name, org_code, data_order
-    </sql>
+      </sql>
 </mapper>

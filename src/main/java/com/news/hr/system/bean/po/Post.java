@@ -11,7 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
@@ -21,7 +20,7 @@ import java.time.LocalDate;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Data
 @Builder
@@ -34,23 +33,23 @@ public class Post extends Model<Post> {
 
     private static final long serialVersionUID=1L;
 
-        @ApiModelProperty(value = "主键")
-    @TableId(value = "post_id", type = IdType.UUID)
+    @ApiModelProperty(value = "主键")
+    @TableId(value = "post_id", type = IdType.ASSIGN_UUID)
         private String postId;
 
-        @ApiModelProperty(value = "岗位编码")
+    @ApiModelProperty(value = "岗位编码")
     @TableField("post_code")
     private String postCode;
 
-        @ApiModelProperty(value = "岗位名称")
+    @ApiModelProperty(value = "岗位名称")
     @TableField("post_name")
     private String postName;
 
-        @ApiModelProperty(value = "组织机构编码")
+    @ApiModelProperty(value = "组织机构编码")
     @TableField("org_code")
     private String orgCode;
 
-        @ApiModelProperty(value = "排序")
+    @ApiModelProperty(value = "排序")
     @TableField("data_order")
     private Integer dataOrder;
 

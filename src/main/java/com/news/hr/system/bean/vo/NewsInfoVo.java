@@ -1,4 +1,4 @@
-package com.news.hr.system.bean.form;
+package com.news.hr.system.bean.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -11,27 +11,25 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
- * NoticeUserVO对象
+ * NewsInfoVO对象
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-23
+ * @since 2019-12-22
  */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value="NoticeUser对象", description="")
-public class NoticeUserForm{
+@ApiModel(value="NewsInfo对象", description="新闻内容管理")
+public class NewsInfoVo{
 
     private static final long serialVersionUID = 1L;
-    private String noticeUserId;
+    @ApiModelProperty(value = "主键")
+    private Integer newsInfoId;
 
     @ApiModelProperty(value = "删除标记（0：正常，1：删除）")
     private Integer delFlag;
-
-    @ApiModelProperty(value = "排序字段（用户可以手动操作数据顺序时用到）")
-    private Integer dataOrder;
 
     @ApiModelProperty(value = "创建用户的登录名")
     private String cUserId;
@@ -53,17 +51,41 @@ public class NoticeUserForm{
     @ApiModelProperty(value = "最后修改时间")
     private LocalDateTime mtime;
 
-    @ApiModelProperty(value = "sys_notice主键")
-    private String noticeId;
+    @ApiModelProperty(value = "一级分类")
+    private String firstLevel;
 
-    @ApiModelProperty(value = "用户登录名")
-    private String userId;
+    @ApiModelProperty(value = "二级分类")
+    private String secondLevel;
 
-    @ApiModelProperty(value = "用户名称")
-    private String userName;
+    @ApiModelProperty(value = "地区")
+    private String region;
 
-    @ApiModelProperty(value = "已读标记（Y-已读 N-未读）")
-    private String readFlag;
+    @ApiModelProperty(value = "新闻名称")
+    private String newsName;
+
+    @ApiModelProperty(value = "新闻来源")
+    private String newsSource;
+
+    @ApiModelProperty(value = "记者ID")
+    private String newsmanId;
+
+    @ApiModelProperty(value = "记者")
+    private String newsman;
+
+    @ApiModelProperty(value = "新闻点击率")
+    private Integer newsClickRate;
+
+    @ApiModelProperty(value = "简介")
+    private String introduction;
+
+    @ApiModelProperty(value = "图片地址")
+    private String imageUrl;
+
+    @ApiModelProperty(value = "视频地址")
+    private String videoUrl;
+
+    @ApiModelProperty(value = "新闻内容")
+    private Integer contentId;
 
 
 

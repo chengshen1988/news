@@ -8,10 +8,10 @@
         <id column="region_id" property="regionId"/>
         <result column="Name" property="Name"/>
         <result column="Pid" property="Pid"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         region_id, Name, Pid
-    </sql>
+      </sql>
 </mapper>

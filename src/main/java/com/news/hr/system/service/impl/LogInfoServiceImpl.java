@@ -27,10 +27,10 @@ import com.news.hr.system.service.LogInfoService;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class LogInfoServiceImpl extends ServiceImpl<LogInfoMapper, LogInfo> implements LogInfoService {
 
     @Resource

@@ -20,7 +20,7 @@ import com.news.hr.system.bean.vo.UserGroupVo;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 public interface UserGroupService extends IService<UserGroup> {
     /**

@@ -13,7 +13,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
@@ -23,7 +22,7 @@ import java.time.LocalDate;
  * </p>
  *
  * @author Chen Seen
- * @since 2019-12-15
+ * @since 2019-12-23
  */
 @Data
 @Builder
@@ -36,44 +35,44 @@ public class LogInfo extends Model<LogInfo> {
 
     private static final long serialVersionUID=1L;
 
-        @ApiModelProperty(value = "系统日志Id")
+    @ApiModelProperty(value = "系统日志Id")
     @TableId(value = "log_info_id", type = IdType.AUTO)
         private Integer logInfoId;
 
-        @ApiModelProperty(value = "删除标记（0：正常，1：删除）")
+    @ApiModelProperty(value = "删除标记（0：正常，1：删除）")
     @TableField("del_flag")
     private Integer delFlag;
 
-        @ApiModelProperty(value = "创建用户的登录名")
+    @ApiModelProperty(value = "创建用户的登录名")
     @TableField("c_user_id")
     private String cUserId;
 
-        @ApiModelProperty(value = "创建用户的名称")
+    @ApiModelProperty(value = "创建用户的名称")
     @TableField("c_user_name")
     private String cUserName;
 
     @DateTimeFormat(pattern = "YYYY-MM-dd HH:mm:ss")
-        @ApiModelProperty(value = "创建时间")
+    @ApiModelProperty(value = "创建时间")
     @TableField(value = "ctime", fill = FieldFill.INSERT)
     private LocalDateTime ctime;
 
-        @ApiModelProperty(value = "请求的远程IP")
+    @ApiModelProperty(value = "请求的远程IP")
     @TableField("remote_ip")
     private String remoteIp;
 
-        @ApiModelProperty(value = "访问模块")
+    @ApiModelProperty(value = "访问模块")
     @TableField("module")
     private String module;
 
-        @ApiModelProperty(value = "日志类型")
+    @ApiModelProperty(value = "日志类型")
     @TableField("log_kind")
     private String logKind;
 
-        @ApiModelProperty(value = "日志消息")
+    @ApiModelProperty(value = "日志消息")
     @TableField("message")
     private String message;
 
-        @ApiModelProperty(value = "业务数据")
+    @ApiModelProperty(value = "业务数据")
     @TableField("business_data")
     private String businessData;
 

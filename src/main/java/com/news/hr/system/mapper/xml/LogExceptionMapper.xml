@@ -16,10 +16,10 @@
         <result column="data" property="data"/>
         <result column="message" property="message"/>
         <result column="stacktrace" property="stacktrace"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         log_exception_id, del_flag, c_user_id, c_user_name, exception_name, remote_ip, module_name, url, data, message, stacktrace
-    </sql>
+      </sql>
 </mapper>

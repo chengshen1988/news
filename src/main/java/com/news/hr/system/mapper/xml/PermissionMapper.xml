@@ -15,10 +15,10 @@
         <result column="formula" property="formula"/>
         <result column="resource_value" property="resourceValue"/>
         <result column="data_comment" property="dataComment"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         permission_id, permission_kind, role_id, resource_id, resource_key, resource_name, resource_auth, formula, resource_value, data_comment
-    </sql>
+      </sql>
 </mapper>

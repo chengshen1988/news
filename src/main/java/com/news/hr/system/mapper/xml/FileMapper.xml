@@ -25,10 +25,10 @@
         <result column="file_store" property="fileStore"/>
         <result column="file_converter_store" property="fileConverterStore"/>
         <result column="file_comment" property="fileComment"/>
-  </resultMap>
+    </resultMap>
 
       <!-- 通用查询结果列 -->
       <sql id="Base_Column_List">
         file_id, del_flag, data_order, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, directory_id, business_type, business_id, file_name, file_code, file_size, file_kind, file_type, file_store, file_converter_store, file_comment
-    </sql>
+      </sql>
 </mapper>

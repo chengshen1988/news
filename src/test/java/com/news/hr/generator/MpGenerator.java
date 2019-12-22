@@ -30,6 +30,7 @@ public class MpGenerator {
           "sys_message_user","sys_notice","sys_notice_user","sys_operation","sys_org","sys_permission","sys_post","sys_region","sys_role",
           "sys_sequence","sys_user_group"};
 //  private static final String[] include = {"tbl_content","tbl_contribution","tbl_enterprise","tbl_level","tbl_link_manage","tbl_news_info","tbl_news_recommend","tbl_newsman"};
+//  private static final String[] include = {"tbl_news_info"};
 
   /**
    * <p>
@@ -55,7 +56,7 @@ public class MpGenerator {
     //是否生成 kotlin 代码
     //gc.setKotlin(true);
     gc.setAuthor(AUTHOR);
-    gc.setIdType(IdType.UUID);
+    gc.setIdType(IdType.ASSIGN_UUID);
 
     // 自定义文件命名，注意 %s 会自动填充表实体属性！
      gc.setMapperName("%sMapper");
