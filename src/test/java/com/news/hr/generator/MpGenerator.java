@@ -22,14 +22,14 @@ public class MpGenerator {
   private static final String DISK_JAVA = System.getProperty("user.dir")+ File.separator+"src"+File.separator+"main"+File.separator+"java";
 
   private static final String PARENT = "com.news.hr";
-  private static final String MODULE_NAME = "system";
+  private static final String MODULE_NAME = "business";
   private static final String PARENT_PATH = "com/news/hr";
   //后端控制器以及服务生成地址
   private static final String AUTHOR = "Chen Seen";
-  private static final String[] include = {"sys_access_log","sys_dict","sys_log_exception","sys_file","sys_group","sys_log_info","sys_menu","sys_message",
-          "sys_message_user","sys_notice","sys_notice_user","sys_operation","sys_org","sys_permission","sys_post","sys_region","sys_role",
-          "sys_sequence","sys_user_group"};
-//  private static final String[] include = {"tbl_content","tbl_contribution","tbl_enterprise","tbl_level","tbl_link_manage","tbl_news_info","tbl_news_recommend","tbl_newsman"};
+//  private static final String[] include = {"sys_access_log","sys_dict","sys_log_exception","sys_file","sys_group","sys_log_info","sys_menu","sys_message",
+//          "sys_message_user","sys_notice","sys_notice_user","sys_operation","sys_org","sys_permission","sys_post","sys_region","sys_role",
+//          "sys_sequence","sys_user_group"};
+  private static final String[] include = {"tbl_content","tbl_contribution","tbl_enterprise","tbl_level","tbl_link_manage","tbl_news_info","tbl_news_recommend","tbl_newsman"};
 //  private static final String[] include = {"tbl_news_info"};
 
   /**

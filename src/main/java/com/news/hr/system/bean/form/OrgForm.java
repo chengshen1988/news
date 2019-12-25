@@ -3,11 +3,6 @@ package com.news.hr.system.bean.form;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
-import java.io.Serializable;
-import java.util.Date;
-import java.time.LocalDateTime;
-import java.time.LocalDate;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>

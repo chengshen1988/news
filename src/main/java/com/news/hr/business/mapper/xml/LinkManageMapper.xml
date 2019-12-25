@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.news.hr.business.mapper.LinkManageMapper">
+
+      <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.news.hr.business.bean.po.LinkManage">
+        <id column="link_manage_id" property="linkManageId"/>
+        <result column="del_flag" property="delFlag"/>
+        <result column="c_user_id" property="cUserId"/>
+        <result column="c_user_name" property="cUserName"/>
+        <result column="ctime" property="ctime"/>
+        <result column="m_user_id" property="mUserId"/>
+        <result column="m_user_name" property="mUserName"/>
+        <result column="mtime" property="mtime"/>
+        <result column="link_name" property="linkName"/>
+        <result column="link_url" property="linkUrl"/>
+        <result column="link_category" property="linkCategory"/>
+        <result column="image_url" property="imageUrl"/>
+    </resultMap>
+
+      <!-- 通用查询结果列 -->
+      <sql id="Base_Column_List">
+        link_manage_id, del_flag, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, link_name, link_url, link_category, image_url
+      </sql>
+</mapper>

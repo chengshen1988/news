@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.news.hr.business.mapper.NewsmanMapper">
+
+      <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.news.hr.business.bean.po.Newsman">
+        <id column="newsman_id" property="newsmanId"/>
+        <result column="data_order" property="dataOrder"/>
+        <result column="del_flag" property="delFlag"/>
+        <result column="c_user_id" property="cUserId"/>
+        <result column="c_user_name" property="cUserName"/>
+        <result column="ctime" property="ctime"/>
+        <result column="m_user_id" property="mUserId"/>
+        <result column="m_user_name" property="mUserName"/>
+        <result column="mtime" property="mtime"/>
+        <result column="newsman_name" property="newsmanName"/>
+        <result column="gender" property="gender"/>
+        <result column="card_number" property="cardNumber"/>
+        <result column="ID_card_no" property="idCardNo"/>
+        <result column="unit_name" property="unitName"/>
+        <result column="duty" property="duty"/>
+        <result column="issue_date" property="issueDate"/>
+        <result column="passport_photo" property="passportPhoto"/>
+        <result column="introduction" property="introduction"/>
+    </resultMap>
+
+      <!-- 通用查询结果列 -->
+      <sql id="Base_Column_List">
+        newsman_id, data_order, del_flag, c_user_id, c_user_name, ctime, m_user_id, m_user_name, mtime, newsman_name, gender, card_number, ID_card_no, unit_name, duty, issue_date, passport_photo, introduction
+      </sql>
+</mapper>
