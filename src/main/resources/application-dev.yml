@@ -24,11 +24,7 @@ spring:
         max-active: 8
         max-wait: -1ms
 
-oss:
-  endpoint: https://oss-cn-beijing.aliyuncs.com
-  bucket: newspaper-cs-001
-  accessKeyId  : LTAI4FrRB9WrtkYiym2C97Gh
-  accessKeySecret: 369cMADe5amIFe5cFxKQkiXrEQkVwk
+
 
 quartz:
   #相关属性配置
