@@ -18,7 +18,6 @@
     </parent>
 
     <properties>
-        <java.version>11</java.version>
         <mybatisplus.version>3.3.0</mybatisplus.version>
         <poi-version>4.1.1</poi-version>
         <dom4j-version>1.6.1</dom4j-version>
