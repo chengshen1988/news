@@ -31,10 +31,6 @@ servlet:
     enabled: true
     max-file-size: 30MB
     max-request-size: 30MB
-mail:
-  username: jxgl.blsh
-  pwd: BLSHjxgl602
-  host: mail.sinopec.com
 #jasypt:
 #  encryptor:
 #    password: hr!@#$
